@@ -13,6 +13,7 @@ COPY ./plugins src/plugins
 
 RUN neo4j-admin import --database=neo4j --nodes=src/data/idm-materias.csv --relationships=src/data/idm-relationships.csv --nodes=src/data/idm-semestres.csv --relationships=src/data/idm-mat-sem-rels.csv
 
+ENV NEO4JLABS_PLUGINS=["apoc","graph-algorithms"]
 ENV NEO4J_AUTH=none
 
 CMD ["neo4j"]
